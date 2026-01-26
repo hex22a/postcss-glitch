@@ -24,55 +24,39 @@ It contains both plugin source code and various demo projects that use the plugi
 
 It's recommended to use [nvm](https://github.com/nvm-sh/nvm) to manage Node versions
 
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-```
-
 [NodeJS](https://nodejs.org/)
 
 ```bash
-nvm install 14 && nvm use 14
+nvm install 24 && nvm use 24
 ```
 
-[Yarn](https://yarnpkg.com/)
+[pnpm](https://pnpm.io/)
 
 ```bash
-npm i -g yarn
+npm i -g pnpm
 ```
+### Install dependencies
 
-Since this repo is using [Zero-Installs](https://yarnpkg.com/features/zero-installs) no further setup is required.
+```bash
+pnpm install
+```
 
 ### Workspaces
 
 This project is a monorepo containing multiple projects a.k.a workspaces.
-Workspaces are defined in the root [package.json](package.json).
+Workspaces are defined in [pnpm-workspace.yaml](pnpm-workspace.yaml).
 Here we have a workspace under [plugin](plugin) directory, additionally each directory under [demos](demos) is also considered a workspace.
 
-```json
-{
-    "workspaces": [
-        "plugin",
-        "demos/*"
-      ]
-}
+```yaml
+packages:
+	- plugin
+	- demos/*
 ```
 
-This allows, for example, to install all the dependencies at once for both plugin and all of the demo projects while running `yarn install` in the root folder.
+This allows, for example, to install all the dependencies at once for both plugin and all the demo projects while running `pnpm install` in the root folder.
 
-You can learn more about managing monorepo with yarn workspaces in the [documentation](https://yarnpkg.com/features/workspaces).
+You can learn more about managing monorepo with yarn workspaces in the [documentation](https://pnpm.io/workspaces).
 
-
-### Install dependencies
-
-```bash
-yarn install
-```
-
-Please add everything created under `.yarn` directory to git as [Zero-Installs](https://yarnpkg.com/features/zero-installs) requires.
-
-```bash
-git add .yarn
-```
 
 ### Contributing
 

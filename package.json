@@ -1,8 +1,4 @@
 {
   "name": "postcss-glitch-monorepo",
-  "private": true,
-  "workspaces": [
-    "plugin",
-    "demos/*"
-  ]
+  "private": true
 }

@@ -11,8 +11,8 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm install --filter postcss-glitch
       - name: Run ESLint
-        run: pnpm lint
+        run: pnpm --filter postcss-glitch lint
       - name: Run Unit Tests
-        run: pnpm test
+        run: pnpm --filter postcss-glitch test

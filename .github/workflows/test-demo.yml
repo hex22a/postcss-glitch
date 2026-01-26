@@ -11,9 +11,9 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm install --filter simple
       - name: Run ESLint
-        run: pnpm lint
+        run: pnpm --filter simple lint
       - name: Run Unit Tests
-        run: pnpm test
+        run: pnpm --filter simple test
 

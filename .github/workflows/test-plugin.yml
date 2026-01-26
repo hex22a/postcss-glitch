@@ -26,7 +26,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --filter postcss-glitch
       - name: Build dist to check size
-        run: pnpm --fileter postcss-glitch build:ci
+        run: pnpm --filter postcss-glitch build:ci
       - name: Run size-limit
         run: pnpm --filter postcss-glitch size:ci
 

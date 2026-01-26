@@ -1,10 +1,7 @@
 name: Run linters and tests for Demo
 on:
   push:
-    paths:
-      - demos/simple
-    tags:
-      - /^(demo-)?v?\d+.\d+.\d+$/
+  pull_request:
 
 jobs:
   Run-Tests-For-Demo:

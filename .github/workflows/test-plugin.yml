@@ -1,9 +1,7 @@
 name: Run linter and tests for plugin
 on:
   push:
-    paths:
-      - plugin
-      - pnpm-lock.yaml
+  pull_request:
 
 jobs:
   Tests:

@@ -6,6 +6,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
+  "ignorePatterns": "./dist",
   "settings": {
     "import/resolver": {
       "node": {

@@ -1,0 +1,22 @@
+name: Deploy Plugin to NPM
+on:
+  push:
+    paths:
+      - plugin
+      - pnpm-lock.yaml
+    branches:
+      - master
+    tags:
+      - /^v?\d+.\d+.\d+$/
+
+jobs:
+  Build-And-Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Build
+        run: pnpm build:ci

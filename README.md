@@ -1,7 +1,5 @@
 # postcss-glitch
 
-[![CircleCI](https://circleci.com/gh/crftd/postcss-glitch/tree/master.svg?style=svg)](https://circleci.com/gh/crftd/postcss-glitch/tree/master.svg?style=svg)
-
 Glitch effect implemented with PostCSS. With this plugin you can easily add glitch effect to any text!
 
 ![animation](http://g.recordit.co/COmXbvzGfg.gif)

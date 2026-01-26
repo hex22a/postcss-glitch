@@ -1,0 +1,20 @@
+name: Run linter and tests for plugin
+on:
+  push:
+    paths:
+      - plugin
+      - pnpm-lock.yaml
+
+jobs:
+  Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Run ESLint
+        run: pnpm lint
+      - name: Run Unit Tests
+        run: pnpm test

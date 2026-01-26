@@ -15,14 +15,15 @@
     "animation"
   ],
   "scripts": {
-    "start": "yarn build:ci",
+    "start": "pnpm build:ci",
     "check-types": "tsc",
     "cypress": "cypress open",
     "size": "NODE_ENV=production npx size-limit --why",
-    "lint": "CI=true NODE_ENV=production npx size-limit && eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "size:ci": "CI=true NODE_ENV=production npx size-limit",
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "test": "jest --ci",
     "jest": "jest",
-    "build:ci": "CI=true yarn build",
+    "build:ci": "CI=true pnpm build",
     "build:dev": "NODE_ENV=development webpack-cli --mode=development",
     "build": "NODE_ENV=production webpack-cli --mode=production"
   },

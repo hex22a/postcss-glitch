@@ -16,3 +16,17 @@ jobs:
         run: pnpm --filter postcss-glitch lint
       - name: Run Unit Tests
         run: pnpm --filter postcss-glitch test
+  Check-Size:
+    needs: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+      - name: Install Dependencies
+        run: pnpm install --filter postcss-glitch
+      - name: Build dist to check size
+        run: pnpm --fileter postcss-glitch build:ci
+      - name: Run size-limit
+        run: pnpm --filter postcss-glitch size:ci
+

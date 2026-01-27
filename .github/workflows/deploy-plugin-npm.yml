@@ -12,7 +12,7 @@ jobs:
     environment: npm
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Ensure tag is on master
@@ -25,15 +25,13 @@ jobs:
             exit 1
           fi
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
       - name: Install Dependencies
         run: pnpm install --filter postcss-glitch
       - name: Build
         run: pnpm --filter postcss-glitch build:ci
-      - name: Check secret
-        run: |
-          echo "NODE_AUTH_TOKEN length: ${#NODE_AUTH_TOKEN}"
-          pnpm whoami
+      - name: Authenticate to NPM
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
         env:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish to NPM

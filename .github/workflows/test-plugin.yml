@@ -20,9 +20,9 @@ jobs:
     needs: Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
       - name: Install Dependencies
         run: pnpm install --filter postcss-glitch
       - name: Build dist to check size

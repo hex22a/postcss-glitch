@@ -34,6 +34,8 @@ jobs:
         run: |
           echo "NODE_AUTH_TOKEN length: ${#NODE_AUTH_TOKEN}"
           pnpm whoami
+        env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish to NPM
         run: pnpm --filter postcss-glitch publish --access public --no-git-checks
         env:

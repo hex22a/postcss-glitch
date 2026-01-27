@@ -4,19 +4,43 @@ on:
     paths:
       - demos/simple
     tags:
-      - /^(demo-)?v?\d+.\d+.\d+$/
+      - (demo-)?v?\d+.\d+.\d+
 
 jobs:
-  Run-Tests-For-Demo:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - name: Ensure tag is on master
+        run: |
+          TAG_COMMIT=$(git rev-list -n 1 $GITHUB_REF)
+          MASTER_COMMIT=$(git rev-parse origin/master)
+
+          if [ "$TAG_COMMIT" != "$MASTER_COMMIT" ]; then
+            echo "❌ Tag is not on master"
+            exit 1
+          fi
       - name: Install pnpm
         uses: pnpm/action-setup@v4
       - name: Install Dependencies
-        run: pnpm install
-      - name: Run ESLint
-        run: pnpm lint
-      - name: Run Unit Tests
-        run: pnpm test
+        run: pnpm install --filter simple
+      - name: Build
+        run: pnpm --filter simple build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: demos/simple/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 

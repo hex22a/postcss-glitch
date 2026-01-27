@@ -15,10 +15,7 @@ jobs:
         run: |
           git fetch origin master
           TAG_COMMIT=$(git rev-list -n 1 $GITHUB_REF)
-          echo $GITHUB_REF
-          echo $TAG_COMMIT
           MASTER_COMMIT=$(git rev-parse origin/master)
-          echo $MASTER_COMMIT
 
           if [ "$TAG_COMMIT" != "$MASTER_COMMIT" ]; then
             echo "❌ Tag is not on master"

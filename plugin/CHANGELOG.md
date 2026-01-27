@@ -1,3 +1,8 @@
+### 4.0.0 (2026-01-27)
+
+- Upgrade to PostCSS 8
+- Update all plugin dependencies to match modern standards (TypeScript 5, ESlint 9, Jest 30)
+
 ### 3.2.0 (2019-06-9)
 
 - Update demo page

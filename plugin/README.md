@@ -4,14 +4,12 @@ Glitch effect implemented with PostCSS. With this plugin you can easily add glit
 
 [![npm version](https://badge.fury.io/js/postcss-glitch.svg)](https://badge.fury.io/js/postcss-glitch)
 
-![animation](http://g.recordit.co/COmXbvzGfg.gif)
-
-Check out our [demo page](https://crftd.github.io/postcss-glitch/) ([source](https://github.com/crftd/postcss-glitch-demos))
+Check out our [demo page](https://hex22a.github.io/postcss-glitch/) ([source](https://github.com/crftd/postcss-glitch-demos))
 
 ## Installation
 
 ```bash
-yarn add postcss-glitch
+npm install postcss-glitch
 ```
 
 You can use `.postcssrc.js` to add plugin to your project just like this:
@@ -169,10 +167,10 @@ There are 2 major groups of tests in this project:
 
 ```bash
 # running jest in the watch mode
-yarn workspace postcss-glitch jest
+pnpm --filter postcss-glitch jest
 
 # or alternatively run it without watch mode as it runs on CI server
-yarn workspace postcss-glitch test
+pnpm --filter postcss-glitch test
 ```
 
 > If you're having difficulties with running in watch mode see [the installation guide](https://facebook.github.io/watchman/docs/install.html#buildinstall) 
@@ -181,10 +179,10 @@ yarn workspace postcss-glitch test
 
 ```bash
 # opening cypress
-yarn workspace postcss-glitch cypress open
+pnpm --filter postcss-glitch cypress open
 
 # running cypress in headless mode
-yarn workspace postcss-glitch cypress run
+pnpm --filter postcss-glitch cypress run
 ```
 
 > Make sure the page under test is up and running at [http://localhost:1234](http://localhost:1234) before opening cypress.

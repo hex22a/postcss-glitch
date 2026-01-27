@@ -4,7 +4,7 @@ Glitch effect implemented with PostCSS. With this plugin you can easily add glit
 
 ![animation](http://g.recordit.co/COmXbvzGfg.gif)
 
-Check out our [demo page](https://crftd.github.io/postcss-glitch/) ([source](https://github.com/crftd/postcss-glitch-demos))
+Check out [demo page](https://hex22a.github.io/postcss-glitch/) ([source](https://github.com/crftd/postcss-glitch-demos))
 
 ---
 

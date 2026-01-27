@@ -1,1 +1,1 @@
-require('./index.pcss')
+import './index.pcss';

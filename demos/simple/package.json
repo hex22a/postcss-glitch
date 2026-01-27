@@ -8,11 +8,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "gh-pages --message \"[skip ci] Updates\" --dist dist"
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0",
     "vite": "^7.3.1"
   },
   "dependencies": {

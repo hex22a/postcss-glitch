@@ -1,3 +1,7 @@
+### 5.0.0 (2026-01-27)
+
+- Update export to match PostCSS API v8
+
 ### 4.0.0 (2026-01-27)
 
 - Upgrade to PostCSS 8

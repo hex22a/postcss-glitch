@@ -24,3 +24,6 @@ tsconfig.json
 .yarn
 .circleci
 cypress
+cypress.json
+jest.config.js
+setup.jest.ts

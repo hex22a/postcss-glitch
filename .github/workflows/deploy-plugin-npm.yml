@@ -5,7 +5,7 @@ on:
       - plugin
       - pnpm-lock.yaml
     tags:
-      - /^v?\d+.\d+.\d+$/
+      - v?\d+.\d+.\d+
 
 jobs:
   Build-And-Deploy:

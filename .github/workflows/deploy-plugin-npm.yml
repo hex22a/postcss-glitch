@@ -4,19 +4,33 @@ on:
     paths:
       - plugin
       - pnpm-lock.yaml
-    branches:
-      - master
     tags:
       - /^v?\d+.\d+.\d+$/
 
 jobs:
   Build-And-Deploy:
+    environment: npm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Ensure tag is on master
+        run: |
+          TAG_COMMIT=$(git rev-list -n 1 $GITHUB_REF)
+          MASTER_COMMIT=$(git rev-parse origin/master)
+
+          if [ "$TAG_COMMIT" != "$MASTER_COMMIT" ]; then
+            echo "❌ Tag is not on master"
+            exit 1
+          fi
       - name: Install pnpm
         uses: pnpm/action-setup@v2
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm install --filter postcss-glitch
       - name: Build
-        run: pnpm build:ci
+        run: pnpm --filter postcss-glitch build:ci
+      - name: Publish to NPM
+        run: pnpm --filter postcss-glitch publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

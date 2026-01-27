@@ -21,6 +21,7 @@ jobs:
           fetch-depth: 0
       - name: Ensure tag is on master
         run: |
+          git fetch origin master
           TAG_COMMIT=$(git rev-list -n 1 $GITHUB_REF)
           MASTER_COMMIT=$(git rev-parse origin/master)
 

@@ -31,6 +31,6 @@ jobs:
       - name: Build
         run: pnpm --filter postcss-glitch build:ci
       - name: Publish to NPM
-        run: pnpm --filter postcss-glitch publish --access public -no-git-checks
+        run: pnpm --filter postcss-glitch publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

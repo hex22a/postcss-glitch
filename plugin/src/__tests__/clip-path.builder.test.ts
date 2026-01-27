@@ -1,8 +1,5 @@
-/**
- * Crafted by Crash on 14.12.17.
- */
-
-import { decl, Declaration } from 'postcss';
+import type { Declaration } from 'postcss';
+import { decl } from 'postcss';
 import * as builder from '../clip-path.builder';
 
 describe('clip-path builder', () => {
@@ -173,11 +170,9 @@ describe('clip-path builder', () => {
     const expectedOffsetTop = 25;
     const expectedRandomNumber = 0.5;
 
-    const mockMath = Object.create(global.Math);
-    const mockRandom = jest.fn(() => expectedRandomNumber);
-    mockMath.random = mockRandom;
-    // noinspection JSUnresolvedVariable
-    global.Math = mockMath;
+    const mockRandom = jest
+      .spyOn(Math, 'random')
+      .mockReturnValue(expectedRandomNumber);
 
     // Act
     const actualOffsetTop = builder.getOffsetTop(expectedHeight);

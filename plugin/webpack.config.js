@@ -1,50 +1,64 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const webpack = require('webpack');
-const PnpWebpackPlugin = require('pnp-webpack-plugin');
+require('webpack');
+const path = require('path');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const sourcePath = `${__dirname}/src`;
-const staticsPath = `${__dirname}/dist`;
+const sourcePath = path.resolve(__dirname, 'src');
+const staticsPath = path.resolve(__dirname, 'dist');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
+const isRunningOnCi = Boolean(process.env.CI);
 
-const isRunningOnCi = process.env.CI || false;
+const plugins = [];
 
-const plugins = [new webpack.NamedModulesPlugin()];
+if (!isRunningOnCi) {
+  plugins.push(new BundleAnalyzerPlugin());
+}
 
-if (!isRunningOnCi) plugins.push(new BundleAnalyzerPlugin());
+module.exports = {
+  mode: isProd ? 'production' : 'development',
 
-const config = {
-  devtool: isProd ? '' : 'eval-source-map',
+  devtool: isProd ? false : 'eval-source-map',
+
   context: sourcePath,
+
   entry: {
     bundle: './index.ts',
   },
+
   target: 'node',
+
   output: {
     path: staticsPath,
     filename: 'index.js',
-    libraryExport: 'default',
-    libraryTarget: 'umd',
+    library: {
+      type: 'umd',
+      export: 'default',
+    },
+    clean: true,
   },
+
   resolve: {
-    extensions: ['.js', '.ts'],
-    plugins: [ PnpWebpackPlugin ],
+    extensions: ['.ts', '.js'],
   },
-  resolveLoader: {
-    plugins: [ PnpWebpackPlugin.moduleLoader(module) ],
-  },
+
   module: {
     rules: [
       {
         test: /\.ts$/,
         include: sourcePath,
-        loader: require.resolve('babel-loader'),
+        use: {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
+        },
       },
     ],
   },
-  plugins,
-};
 
-module.exports = config;
+  plugins,
+
+  stats: 'minimal',
+};

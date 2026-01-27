@@ -1,17 +1,20 @@
-module.exports = {
-  globals: {
-    'ts-jest': {
-      compiler: 'ttypescript',
-    },
-  },
-  setupFiles: [
-    '<rootDir>setup.jest.ts',
-  ],
+export default {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+
+  setupFiles: ['<rootDir>/setup.jest.ts'],
+
   verbose: true,
-  testMatch: [
-    '**/__tests__/**/*.ts?(x)',
-  ],
+
+  testMatch: ['**/__tests__/**/*.ts?(x)'],
+
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        tsconfig: './tsconfig.json',
+        isolatedModules: true
+      }
+    ]
+  }
 };

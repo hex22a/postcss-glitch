@@ -1,8 +1,5 @@
-/**
- * Crafted by Crash on 29.11.17.
- */
-
-import { atRule, decl, Declaration, list, rule, Rule } from 'postcss';
+import type { Declaration, Rule } from 'postcss';
+import { atRule, decl, list, rule } from 'postcss';
 import clipPath from './clip-path.builder';
 
 const CONTENT_DECLARATION = decl({ prop: 'content', value: 'attr(data-text)' });
@@ -41,21 +38,23 @@ export default class Translator {
 
   static addKeyframes = (declaration: Declaration): void => {
     const [height] = list.space(declaration.value);
-    const root = declaration.root();
-    const keyframeBefore = atRule({ name: 'keyframes', params: 'glitch-animation-before' });
-    const keyframeAfter = atRule({ name: 'keyframes', params: 'glitch-animation-after' });
-    for (let progress = 0; progress <= 100; progress += 5) {
-      const progressRuleBefore = rule({ selector: `${progress}%` });
-      const progressRuleAfter = rule({ selector: `${progress}%` });
-      const cp1 = clipPath(height);
-      progressRuleBefore.append(cp1);
-      const cp2 = clipPath(height);
-      progressRuleAfter.append(cp2);
-      keyframeBefore.append(progressRuleBefore);
-      keyframeAfter.append(progressRuleAfter);
+    if (height) {
+      const root = declaration.root();
+      const keyframeBefore = atRule({ name: 'keyframes', params: 'glitch-animation-before' });
+      const keyframeAfter = atRule({ name: 'keyframes', params: 'glitch-animation-after' });
+      for (let progress = 0; progress <= 100; progress += 5) {
+        const progressRuleBefore = rule({ selector: `${progress}%` });
+        const progressRuleAfter = rule({ selector: `${progress}%` });
+        const cp1 = clipPath(height);
+        progressRuleBefore.append(cp1);
+        const cp2 = clipPath(height);
+        progressRuleAfter.append(cp2);
+        keyframeBefore.append(progressRuleBefore);
+        keyframeAfter.append(progressRuleAfter);
+      }
+      root.prepend(keyframeAfter);
+      root.prepend(keyframeBefore);
     }
-    root.prepend(keyframeAfter);
-    root.prepend(keyframeBefore);
   };
 
   static removeDeclaration = (declaration: Declaration): void => {

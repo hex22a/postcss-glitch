@@ -1,8 +1,8 @@
 import plugin, { DECLARATION_NAME, PLUGIN_NAME, postcss } from '../index';
-import { createMock } from 'ts-auto-mock';
+import { mock } from 'jest-mock-extended';
 import Root from 'postcss/lib/root';
 import mock_utils from '../translator';
-import { Helpers } from 'postcss';
+import type { Helpers } from 'postcss';
 
 jest.mock('../translator');
 
@@ -27,7 +27,7 @@ describe('index', () => {
       it('should add glitch declaration', () => {
         // Arrange
         const expected_root: Root = new Root();
-        const expected_helpers: Helpers = createMock<Helpers>();
+        const expected_helpers: Helpers = mock<Helpers>();
         const actualPlugin = plugin();
         const mock_walkDecls = jest.fn();
 
@@ -39,7 +39,7 @@ describe('index', () => {
         }
 
         // Assert
-        expect(mock_walkDecls).toBeCalledWith(DECLARATION_NAME, mock_utils.translate);
+        expect(mock_walkDecls).toHaveBeenCalledWith(DECLARATION_NAME, mock_utils.translate);
       });
     });
   });

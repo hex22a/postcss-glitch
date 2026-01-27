@@ -1,8 +1,5 @@
-/**
- * Crafted by Crash on 29.11.17.
- */
-
-import { decl, Declaration, root, Root, rule, Rule } from 'postcss';
+import type { Declaration, Root, Rule } from 'postcss';
+import { decl, root, rule } from 'postcss';
 import Translator from '../translator';
 import mockClipPath from '../clip-path.builder';
 

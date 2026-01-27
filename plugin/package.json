@@ -3,8 +3,8 @@
   "version": "3.2.38",
   "description": "PostCSS plugin for glitch effect",
   "main": "dist/index.js",
-  "repository": "https://github.com/crftd/postcss-glitch.git",
-  "author": "Crash <hex22a@gmail.com>",
+  "repository": "https://github.com/hex22a/postcss-glitch.git",
+  "author": "Albert Fazullin <hex22a@gmail.com>",
   "license": "MIT",
   "keywords": [
     "css",
@@ -28,12 +28,12 @@
     "build": "NODE_ENV=production webpack-cli --mode=production"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged",
-      "post-merge": "yarn outdated"
+      "post-merge": "pnpm outdated"
     }
   },
   "size-limit": [
@@ -44,44 +44,30 @@
     }
   ],
   "devDependencies": {
-    "@babel/cli": "^7.11.6",
-    "@babel/core": "^7.11.6",
-    "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-typescript": "^7.10.4",
-    "@size-limit/preset-big-lib": "^4.6.0",
-    "@types/jest": "^26.0.14",
-    "@types/node": "^14.11.2",
-    "@typescript-eslint/eslint-plugin": "^4.3.0",
-    "@typescript-eslint/parser": "^4.3.0",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.3.0",
-    "babel-loader": "^8.1.0",
-    "babel-polyfill": "^6.26.0",
-    "cypress": "^5.3.0",
-    "cypress-image-snapshot": "^3.1.1",
-    "eslint": "^7.10.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-config-airbnb-typescript": "^11.0.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-plugin-import": "^2.22.1",
-    "husky": "^4.3.0",
-    "jest": "^26.4.2",
-    "jest-ts-auto-mock": "^1.0.11",
-    "pnp-webpack-plugin": "^1.6.4",
-    "postcss": "^8.1.1",
-    "prettier": "2.1.2",
-    "pretty-quick": "^3.0.2",
-    "size-limit": "^4.6.0",
-    "ts-auto-mock": "^2.6.4",
-    "ts-jest": "^26.4.0",
-    "ts-loader": "^8.0.4",
-    "ttypescript": "^1.5.12",
-    "typescript": "^4.0.3",
-    "webpack": "^4.44.2",
-    "webpack-bundle-analyzer": "^3.9.0",
-    "webpack-cli": "^3.3.12"
+    "@size-limit/preset-big-lib": "^12.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.0.10",
+    "@typescript-eslint/eslint-plugin": "^8.53.1",
+    "@typescript-eslint/parser": "^8.53.1",
+    "cypress": "^15.9.0",
+    "cypress-image-snapshot": "^4.0.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "jest-mock-extended": "^4.0.0",
+    "jest-ts-auto-mock": "^2.1.0",
+    "postcss": "^8.5.6",
+    "prettier": "3.8.1",
+    "pretty-quick": "^4.2.2",
+    "size-limit": "^12.0.0",
+    "ts-jest": "^29.4.6",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0",
+    "webpack": "^5.104.1",
+    "webpack-bundle-analyzer": "^5.2.0",
+    "webpack-cli": "^6.0.1"
   },
   "browserslist": [
     "last 1 version",

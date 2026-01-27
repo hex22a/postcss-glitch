@@ -17,8 +17,8 @@ importers:
         specifier: ^8.5.6
         version: 8.5.6
       postcss-glitch:
-        specifier: ^4.0.8
-        version: 4.0.8(postcss@8.5.6)
+        specifier: ^5.0.0
+        version: 5.0.0(postcss@8.5.6)
     devDependencies:
       gh-pages:
         specifier: ^6.3.0
@@ -2913,8 +2913,8 @@ packages:
     resolution: {integrity: sha512-TRzzuFRRmEoSW/p1KVAmiOgPco2Irlah+bGFCeNfJXxxYGwSw7YwAOAcd7X28K/m5bjBWKsC29KyoMfHbypayg==}
     engines: {node: '>=12.13.0'}
 
-  postcss-glitch@4.0.8:
-    resolution: {integrity: sha512-TrFYUDfofTqDd0Ylk6E3/01CcISA1LJGm+vo3mvRzypuAhvS67gAWaT9Emv/BdWAC4vy92HR7xO5aG+gOyUAxA==}
+  postcss-glitch@5.0.0:
+    resolution: {integrity: sha512-KOxMpCqr1BKVy3aYYO+6AXlwPdb4kaWVRXK6AYECnRRl9I5DgBqa03jjiwatgyRrRvV1bgASZp0a9sK3CK17QQ==}
     engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.1.1
@@ -6846,7 +6846,7 @@ snapshots:
 
   pngjs@6.0.0: {}
 
-  postcss-glitch@4.0.8(postcss@8.5.6):
+  postcss-glitch@5.0.0(postcss@8.5.6):
     dependencies:
       postcss: 8.5.6
 

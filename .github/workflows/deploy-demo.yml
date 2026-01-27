@@ -4,7 +4,7 @@ on:
     paths:
       - demos/simple
     tags:
-      - (demo-)?v?\d+.\d+.\d+
+      - demo-v\d+.\d+.\d+
 
 jobs:
   build:

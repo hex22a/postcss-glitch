@@ -44,17 +44,11 @@
     }
   ],
   "devDependencies": {
-    "@babel/cli": "^7.28.6",
-    "@babel/core": "^7.28.6",
-    "@babel/preset-env": "^7.28.6",
-    "@babel/preset-typescript": "^7.28.5",
     "@size-limit/preset-big-lib": "^12.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.0.10",
     "@typescript-eslint/eslint-plugin": "^8.53.1",
     "@typescript-eslint/parser": "^8.53.1",
-    "babel-jest": "^30.2.0",
-    "babel-loader": "^10.0.0",
     "cypress": "^15.9.0",
     "cypress-image-snapshot": "^4.0.1",
     "eslint": "^9.39.2",

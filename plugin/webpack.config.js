@@ -49,7 +49,10 @@ module.exports = {
         test: /\.ts$/,
         include: sourcePath,
         use: {
-          loader: require.resolve('babel-loader'),
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
         },
       },
     ],

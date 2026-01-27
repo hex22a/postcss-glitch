@@ -1,4 +1,4 @@
-name: Deploy Plugin to NPM
+name: Publish Plugin to NPM
 on:
   push:
     paths:
@@ -8,7 +8,7 @@ on:
       - v?\d+.\d+.\d+
 
 jobs:
-  Build-And-Deploy:
+  Build-And-Publish:
     environment: npm
     runs-on: ubuntu-latest
     steps:

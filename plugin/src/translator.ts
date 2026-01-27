@@ -1,8 +1,5 @@
-/**
- * Crafted by Crash on 29.11.17.
- */
-
-import { atRule, decl, Declaration, list, rule, Rule } from 'postcss';
+import type { Declaration, Rule } from 'postcss';
+import { atRule, decl, list, rule } from 'postcss';
 import clipPath from './clip-path.builder';
 
 const CONTENT_DECLARATION = decl({ prop: 'content', value: 'attr(data-text)' });

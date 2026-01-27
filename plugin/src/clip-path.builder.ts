@@ -1,8 +1,5 @@
-/**
- * Crafted by Crash on 14.12.17.
- */
-
-import { decl, Declaration } from 'postcss';
+import type { Declaration } from 'postcss';
+import { decl } from 'postcss';
 
 export const getOffsetTop = (height: number): number => Math.floor(Math.random() * height);
 export const getOffsetBottom = (height: number, offsetTop: number, glitchHeight: number): number =>

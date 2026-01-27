@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`translator adds 2 @keyframes animation with 21 steps at root and glitch height 5px 1`] = `
 "@keyframes glitch-animation-before {

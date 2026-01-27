@@ -1,8 +1,4 @@
-/**
- * Crafted by Crash on 20.12.17.
- */
-
-import { Root, Plugin } from 'postcss';
+import type { Root, Plugin } from 'postcss';
 import utils from './translator';
 
 export const DECLARATION_NAME = 'glitch';

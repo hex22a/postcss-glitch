@@ -30,6 +30,10 @@ jobs:
         run: pnpm install --filter postcss-glitch
       - name: Build
         run: pnpm --filter postcss-glitch build:ci
+      - name: Check secret
+        run: |
+          echo "NODE_AUTH_TOKEN length: ${#NODE_AUTH_TOKEN}"
+          pnpm whoami
       - name: Publish to NPM
         run: pnpm --filter postcss-glitch publish --access public --no-git-checks
         env:

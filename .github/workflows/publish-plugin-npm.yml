@@ -7,6 +7,10 @@ on:
     tags:
       - v?\d+.\d+.\d+
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+
 jobs:
   Build-And-Publish:
     environment: npm
@@ -24,17 +28,15 @@ jobs:
             echo "❌ Tag is not on master"
             exit 1
           fi
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
       - name: Install pnpm
         uses: pnpm/action-setup@v4
       - name: Install Dependencies
         run: pnpm install --filter postcss-glitch
       - name: Build
         run: pnpm --filter postcss-glitch build:ci
-      - name: Authenticate to NPM
-        run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
-        env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish to NPM
         run: pnpm --filter postcss-glitch publish --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

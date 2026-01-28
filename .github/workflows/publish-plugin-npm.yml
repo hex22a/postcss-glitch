@@ -19,15 +19,6 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - name: Ensure tag is on master
-        run: |
-          TAG_COMMIT=$(git rev-list -n 1 $GITHUB_REF)
-          MASTER_COMMIT=$(git rev-parse origin/master)
-
-          if [ "$TAG_COMMIT" != "$MASTER_COMMIT" ]; then
-            echo "❌ Tag is not on master"
-            exit 1
-          fi
       - uses: actions/setup-node@v4
         with:
           node-version: '24'

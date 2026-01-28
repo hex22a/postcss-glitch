@@ -41,9 +41,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^8.54.0
         version: 8.54.0(eslint@9.39.2)(typescript@5.9.3)
-      cypress:
-        specifier: ^15.9.0
-        version: 15.9.0
       cypress-image-snapshot:
         specifier: ^4.0.1
         version: 4.0.1(cypress@15.9.0)(jest@30.2.0(@types/node@25.0.10)(node-notifier@10.0.1)(ts-node@10.9.2(@types/node@25.0.10)(typescript@5.9.3)))

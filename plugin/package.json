@@ -1,6 +1,6 @@
 {
   "name": "postcss-glitch",
-  "version": "5.0.1",
+  "version": "6.0.0",
   "description": "PostCSS plugin for glitch effect",
   "main": "dist/index.js",
   "repository": "https://github.com/hex22a/postcss-glitch.git",

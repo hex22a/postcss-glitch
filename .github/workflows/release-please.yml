@@ -48,3 +48,37 @@ jobs:
         run: pnpm --filter postcss-glitch build:ci
       - name: Publish to NPM
         run: pnpm --filter postcss-glitch publish --access public --no-git-checks
+
+  build-demo:
+    needs: release
+    runs-on: ubuntu-latest
+    if: ${{ needs.release.outputs.release_created == 'true' }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Install Dependencies
+        run: pnpm install --filter simple
+      - name: Build
+        run: pnpm --filter simple build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: demos/simple/dist
+
+  deploy-demo:
+    needs: build-demo
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

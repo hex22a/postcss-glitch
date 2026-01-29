@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  release-please:
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -14,6 +14,37 @@ jobs:
 
     steps:
       - uses: googleapis/release-please-action@v4
+        id: rp
         with:
           config-file: release-please-config.json
           token: ${{ secrets.GITHUB_TOKEN }}
+    outputs:
+      release_created: ${{ steps.rp.outputs.release_created }}
+      tag_name: ${{ steps.rp.outputs.tag_name }}
+
+  publish-npm:
+    needs: release
+    environment: npm
+    runs-on: ubuntu-latest
+    if: ${{ needs.release.outputs.release_created == 'true' }}
+
+    permissions:
+      id-token: write  # Required for OIDC
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Install Dependencies
+        run: pnpm install --filter postcss-glitch
+      - name: Build
+        run: pnpm --filter postcss-glitch build:ci
+      - name: Publish to NPM
+        run: pnpm --filter postcss-glitch publish --access public --no-git-checks

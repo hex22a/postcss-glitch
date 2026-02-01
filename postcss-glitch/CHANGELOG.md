@@ -2,6 +2,13 @@
 
 - Update export to match PostCSS API v8
 
+## [6.0.3](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.2...postcss-glitch-v6.0.3) (2026-02-01)
+
+
+### Bug Fixes
+
+* **postcss-glitch:** refactor POSITION_ABSOLUTE_DECLARATION ([c6b3b39](https://github.com/hex22a/postcss-glitch/commit/c6b3b3996727ebaf89219a4d1b976a41daaaacee))
+
 ## [6.0.2](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.1...postcss-glitch-v6.0.2) (2026-02-01)
 
 

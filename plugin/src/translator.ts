@@ -9,6 +9,11 @@ const LEFT_DECLARATION = decl({ prop: 'left', value: '0' });
 const OVERFLOW_DECLARATION = decl({ prop: 'overflow', value: 'hidden' });
 
 export default class Translator {
+  static positionRelative = (declaration: Declaration): void =>  {
+    const parent: Rule = declaration.parent as Rule;
+    parent.prepend(decl({ prop: 'position', value: 'relative' }));
+  };
+
   static addPseudo = (declaration: Declaration): void => {
     const [height, firstColor, secondColor, shadowOffset] = list.space(declaration.value);
     const parent: Rule = declaration.parent as Rule;
@@ -62,6 +67,7 @@ export default class Translator {
   };
 
   static translate = (declaration: Declaration): void => {
+    Translator.positionRelative(declaration);
     Translator.addPseudo(declaration);
     Translator.addKeyframes(declaration);
     Translator.removeDeclaration(declaration);

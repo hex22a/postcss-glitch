@@ -7,6 +7,7 @@ jest.mock('../clip-path.builder');
 
 describe('translator', () => {
   const originalTranslator = {
+    positionRelative: Translator.positionRelative,
     addPseudo: Translator.addPseudo,
     addKeyframes: Translator.addKeyframes,
     removeDeclaration: Translator.removeDeclaration,
@@ -26,6 +27,7 @@ describe('translator', () => {
   });
 
   afterEach(() => {
+    Translator.positionRelative = originalTranslator.positionRelative;
     Translator.addPseudo = originalTranslator.addPseudo;
     Translator.addKeyframes = originalTranslator.addKeyframes;
     Translator.removeDeclaration = originalTranslator.removeDeclaration;
@@ -38,10 +40,12 @@ describe('translator', () => {
       value: `${expectedHeight} ${expectedFirstColor} ${expectedSecondColor} ${expectedShadowOffset}`,
     });
 
+    const mockPositionRelative = jest.fn();
     const mockAddPseudo = jest.fn();
     const mockAddKeyframes = jest.fn();
     const mockRemoveDeclaration = jest.fn();
 
+    Translator.positionRelative = mockPositionRelative;
     Translator.addPseudo = mockAddPseudo;
     Translator.addKeyframes = mockAddKeyframes;
     Translator.removeDeclaration = mockRemoveDeclaration;
@@ -50,9 +54,30 @@ describe('translator', () => {
     Translator.translate(expectedDeclaration);
 
     // Assert
+    expect(mockPositionRelative).toHaveBeenCalledWith(expectedDeclaration);
     expect(mockAddPseudo).toHaveBeenCalledWith(expectedDeclaration);
     expect(mockAddKeyframes).toHaveBeenCalledWith(expectedDeclaration);
     expect(mockRemoveDeclaration).toHaveBeenCalledWith(expectedDeclaration);
+  });
+
+  it('adds position: relative to the parent element', () => {
+    // Arrange
+    const expectedDeclaration = decl({
+      prop: 'glitch',
+      value: `${expectedHeight} ${expectedFirstColor} ${expectedSecondColor} ${expectedShadowOffset}`,
+    });
+    expectedRule.append(expectedDeclaration);
+    expectedRoot.append(expectedRule);
+    const expectedResultCss = `${expectedSelector} {
+    position: relative;
+    glitch: ${expectedHeight} ${expectedFirstColor} ${expectedSecondColor} ${expectedShadowOffset}
+}`;
+
+    // Act
+    Translator.positionRelative(expectedDeclaration);
+
+    // Assert
+    expect(expectedRoot.toString()).toEqual(expectedResultCss);
   });
 
   it('adds ::before and ::after pseudo elements to the rule that contains glitch declaration', () => {

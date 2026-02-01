@@ -37,38 +37,19 @@ module.exports = {
 
 #### Guide
 
-1. Create a positioned element
+1. Create an element which you want to apply a glitch effect
 
 ```html
-<div class="wrapper"></div>
+<div class="glitch">PostCSS Glitch</div>
+```
+
+1. Add a **data-text** attribute to the last created element
+
+```html
+<div class="glitch" data-text="PostCSS Glitch">PostCSS Glitch</div>
 ```
 
 ```css
-.wrapper {
-	position: relative;
-}
-```
-
-2. Create an element which you want to apply a glitch effect
-
-```html
-<div class="wrapper">
-	<div class="glitch">PostCSS Glitch</div>
-</div>
-```
-
-3. Add a **data-text** attribute to the last created element
-
-```html
-<div class="wrapper">
-	<div class="glitch" data-text="PostCSS Glitch">PostCSS Glitch</div>
-</div>
-```
-
-```css
-.wrapper {
-	position: relative;
-}
 .glitch {
 	font-weight: 700;
 	font-size: 23pt;
@@ -77,6 +58,8 @@ module.exports = {
 ```
 
 ## What actually happens?
+
+> ❗️Note that `.glitch` element becomes a positioning context for its pseudo-elements
 
 ```css
 .glitch {
@@ -125,11 +108,8 @@ transforms to
 	}
 }
 
-.wrapper {
-	position: relative;
-}
-
 .glitch {
+	position: relative;
 	font-weight: 700;
 	font-size: 23pt;
 }
@@ -173,16 +153,3 @@ pnpm --filter postcss-glitch test
 
 > If you're having difficulties with running in watch mode see [the installation guide](https://facebook.github.io/watchman/docs/install.html#buildinstall) 
 
-* End-to-end tests powered with [cypress](https://www.cypress.io/)
-
-```bash
-# opening cypress
-pnpm --filter postcss-glitch cypress open
-
-# running cypress in headless mode
-pnpm --filter postcss-glitch cypress run
-```
-
-> Make sure the page under test is up and running at [http://localhost:1234](http://localhost:1234) before opening cypress.
-
-Please respect our tests and make sure that any new behaviour or any change to the existing behaviour is properly reflected in tests.

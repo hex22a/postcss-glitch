@@ -1,11 +1,6 @@
 # Changelog
 
-## [6.0.1](https://github.com/hex22a/postcss-glitch/compare/simple-v2.0.7...simple-v6.0.1) (2026-02-01)
-
-
-### Bug Fixes
-
-* demos/simple/package.json to reduce vulnerabilities ([15d47fc](https://github.com/hex22a/postcss-glitch/commit/15d47fc80b5550c6d06ee0fa647b1495604f8140))
+## [6.0.1](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.0...postcss-glitch-v6.0.1) (2026-02-01)
 
 
 ### Miscellaneous Chores

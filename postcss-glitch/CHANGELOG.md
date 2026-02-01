@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.4](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.3...postcss-glitch-v6.0.4) (2026-02-01)
+
+
+### Bug Fixes
+
+* **postcss-glitch:** inline constants for better readability ([3e92bab](https://github.com/hex22a/postcss-glitch/commit/3e92bab5a3a5a6628061419ee5e939200f9d575c))
+
 ## [6.0.3](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.2...postcss-glitch-v6.0.3) (2026-02-01)
 
 

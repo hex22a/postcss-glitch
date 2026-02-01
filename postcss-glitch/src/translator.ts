@@ -2,12 +2,6 @@ import type { Declaration, Rule } from 'postcss';
 import { atRule, decl, list, rule } from 'postcss';
 import clipPath from './clip-path.builder';
 
-const CONTENT_DECLARATION = decl({ prop: 'content', value: 'attr(data-text)' });
-const POSITION_ABSOLUTE_DECLARATION = decl({ prop: 'position', value: 'absolute' });
-const TOP_DECLARATION = decl({ prop: 'top', value: '0' });
-const LEFT_DECLARATION = decl({ prop: 'left', value: '0' });
-const OVERFLOW_DECLARATION = decl({ prop: 'overflow', value: 'hidden' });
-
 export type TranslatorDeps = {
   positionRelative: (declaration: Declaration) => void;
   addPseudo: (declaration: Declaration) => void;
@@ -35,11 +29,11 @@ export const defaultTranslator: TranslatorDeps = {
       .append(decl({ prop: 'animation', value: 'glitch-animation-after alternate-reverse 2s infinite linear' }));
     const beforeAfterRule = rule({ selectors: [`${selector}::before`, `${selector}::after`] });
     beforeAfterRule
-      .append(CONTENT_DECLARATION)
-      .append(POSITION_ABSOLUTE_DECLARATION)
-      .append(TOP_DECLARATION)
-      .append(LEFT_DECLARATION)
-      .append(OVERFLOW_DECLARATION)
+      .append(decl({ prop: 'content', value: 'attr(data-text)' }))
+      .append(decl({ prop: 'position', value: 'absolute' }))
+      .append(decl({ prop: 'top', value: '0' }))
+      .append(decl({ prop: 'left', value: '0' }))
+      .append(decl({ prop: 'overflow', value: 'hidden' }))
       .append(decl({ prop: 'clip-path', value: `inset(${height} 0 0 0)` }));
     if (declaration.parent) {
       declaration.parent.after(afterRule);

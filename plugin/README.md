@@ -49,7 +49,7 @@ module.exports = {
 }
 ```
 
-2. Create element which you want to apply glitch effect
+2. Create an element which you want to apply a glitch effect
 
 ```html
 <div class="wrapper">
@@ -57,7 +57,7 @@ module.exports = {
 </div>
 ```
 
-3. Add **data-text** attribute to the last created element
+3. Add a **data-text** attribute to the last created element
 
 ```html
 <div class="wrapper">
@@ -155,11 +155,11 @@ transforms to
 }
 ```
 
-And yeah it also works with CSSModules!
+And yeah, it also works with CSSModules!
 
 ### Testing
 
-There are 2 major groups of tests in this project:
+There are two major groups of tests in this project:
 
 * Tests that are running against source code powered with [jest](https://jestjs.io/)
 

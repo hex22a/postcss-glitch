@@ -5,13 +5,13 @@
     "postcss-glitch": {
       "path": "plugin",
       "package-name": "postcss-glitch",
-      "changelog-path": "plugin/CHANGELOG.md",
+      "changelog-path": "CHANGELOG.md",
       "tag-pattern": "v${version}"
     },
-    "demo-simple": {
+    "demos/simple": {
       "path": "demos/simple",
       "package-name": "simple",
-      "changelog-path": "demos/simple/CHANGELOG.md",
+      "changelog-path": "CHANGELOG.md",
       "tag-pattern": "demo-v${version}"
     }
   }

@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.3](https://github.com/hex22a/postcss-glitch/compare/simple-v6.0.2...simple-v6.0.3) (2026-02-01)
+
+
+### Bug Fixes
+
+* **simple:** no need to do position: relative anymore. plugin takes care of it automatically ([aad28a8](https://github.com/hex22a/postcss-glitch/commit/aad28a8251c4d762afe260493e6c1221902110a3))
+
 ## [6.0.2](https://github.com/hex22a/postcss-glitch/compare/simple-v2.0.8...simple-v6.0.2) (2026-02-01)
 
 

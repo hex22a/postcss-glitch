@@ -1,17 +1,12 @@
-import type { Declaration, Root, Rule } from 'postcss';
+import type  { Declaration, Root, Rule } from 'postcss';
 import { decl, root, rule } from 'postcss';
-import Translator from '../translator';
+import type { TranslatorDeps } from '../translator';
+import createTranslator, { defaultTranslator } from '../translator';
 import mockClipPath from '../clip-path.builder';
 
 jest.mock('../clip-path.builder');
 
 describe('translator', () => {
-  const originalTranslator = {
-    positionRelative: Translator.positionRelative,
-    addPseudo: Translator.addPseudo,
-    addKeyframes: Translator.addKeyframes,
-    removeDeclaration: Translator.removeDeclaration,
-  };
   const expectedSelector = '.foo';
   const expectedHeight = '48px';
   const expectedShadowOffset = '1px';
@@ -26,13 +21,6 @@ describe('translator', () => {
     expectedRule = rule({ selector: expectedSelector });
   });
 
-  afterEach(() => {
-    Translator.positionRelative = originalTranslator.positionRelative;
-    Translator.addPseudo = originalTranslator.addPseudo;
-    Translator.addKeyframes = originalTranslator.addKeyframes;
-    Translator.removeDeclaration = originalTranslator.removeDeclaration;
-  });
-
   it('translate declaration', () => {
     // Arrange
     const expectedDeclaration = decl({
@@ -40,24 +28,22 @@ describe('translator', () => {
       value: `${expectedHeight} ${expectedFirstColor} ${expectedSecondColor} ${expectedShadowOffset}`,
     });
 
-    const mockPositionRelative = jest.fn();
-    const mockAddPseudo = jest.fn();
-    const mockAddKeyframes = jest.fn();
-    const mockRemoveDeclaration = jest.fn();
-
-    Translator.positionRelative = mockPositionRelative;
-    Translator.addPseudo = mockAddPseudo;
-    Translator.addKeyframes = mockAddKeyframes;
-    Translator.removeDeclaration = mockRemoveDeclaration;
+    const mockTranslator: TranslatorDeps = {
+      addKeyframes: jest.fn(),
+      addPseudo: jest.fn(),
+      positionRelative: jest.fn(),
+      removeDeclaration: jest.fn(),
+    };
+    const translate = createTranslator(mockTranslator);
 
     // Act
-    Translator.translate(expectedDeclaration);
+    translate(expectedDeclaration);
 
     // Assert
-    expect(mockPositionRelative).toHaveBeenCalledWith(expectedDeclaration);
-    expect(mockAddPseudo).toHaveBeenCalledWith(expectedDeclaration);
-    expect(mockAddKeyframes).toHaveBeenCalledWith(expectedDeclaration);
-    expect(mockRemoveDeclaration).toHaveBeenCalledWith(expectedDeclaration);
+    expect(mockTranslator.positionRelative).toHaveBeenCalledWith(expectedDeclaration);
+    expect(mockTranslator.addPseudo).toHaveBeenCalledWith(expectedDeclaration);
+    expect(mockTranslator.addKeyframes).toHaveBeenCalledWith(expectedDeclaration);
+    expect(mockTranslator.removeDeclaration).toHaveBeenCalledWith(expectedDeclaration);
   });
 
   it('adds position: relative to the parent element', () => {
@@ -74,7 +60,7 @@ describe('translator', () => {
 }`;
 
     // Act
-    Translator.positionRelative(expectedDeclaration);
+    defaultTranslator.positionRelative(expectedDeclaration);
 
     // Assert
     expect(expectedRoot.toString()).toEqual(expectedResultCss);
@@ -109,7 +95,7 @@ ${expectedSelector}::after {
 }`;
 
     // Act
-    Translator.addPseudo(expectedDeclaration);
+    defaultTranslator.addPseudo(expectedDeclaration);
 
     // Assert
     expect(expectedRoot.toString()).toEqual(expectedResultCss);
@@ -132,7 +118,7 @@ ${expectedSelector}::after {
     (mockClipPath as jest.Mock).mockImplementation((): Declaration => expectedClipPath.clone());
 
     // Act
-    Translator.addKeyframes(expectedDeclaration);
+    defaultTranslator.addKeyframes(expectedDeclaration);
 
     // Assert
     expect(expectedRoot.toString()).toMatchSnapshot();
@@ -149,7 +135,7 @@ ${expectedSelector}::after {
     const expectedResultCss = `${expectedSelector} {}`;
 
     // Act
-    Translator.removeDeclaration(expectedDeclaration);
+    defaultTranslator.removeDeclaration(expectedDeclaration);
 
     // Assert
     expect(expectedRoot.toString()).toEqual(expectedResultCss);

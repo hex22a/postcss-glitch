@@ -8,13 +8,20 @@ const TOP_DECLARATION = decl({ prop: 'top', value: '0' });
 const LEFT_DECLARATION = decl({ prop: 'left', value: '0' });
 const OVERFLOW_DECLARATION = decl({ prop: 'overflow', value: 'hidden' });
 
-export default class Translator {
-  static positionRelative = (declaration: Declaration): void =>  {
+export type TranslatorDeps = {
+  positionRelative: (declaration: Declaration) => void;
+  addPseudo: (declaration: Declaration) => void;
+  addKeyframes: (declaration: Declaration) => void;
+  removeDeclaration: (declaration: Declaration) => void;
+};
+
+export const defaultTranslator: TranslatorDeps = {
+  positionRelative(declaration: Declaration): void  {
     const parent: Rule = declaration.parent as Rule;
     parent.prepend(decl({ prop: 'position', value: 'relative' }));
-  };
+  },
 
-  static addPseudo = (declaration: Declaration): void => {
+  addPseudo(declaration: Declaration): void {
     const [height, firstColor, secondColor, shadowOffset] = list.space(declaration.value);
     const parent: Rule = declaration.parent as Rule;
     const selector: string = parent.selector;
@@ -39,9 +46,9 @@ export default class Translator {
       declaration.parent.after(beforeRule);
       declaration.parent.after(beforeAfterRule);
     }
-  };
+  },
 
-  static addKeyframes = (declaration: Declaration): void => {
+  addKeyframes(declaration: Declaration): void {
     const [height] = list.space(declaration.value);
     if (height) {
       const root = declaration.root();
@@ -60,16 +67,18 @@ export default class Translator {
       root.prepend(keyframeAfter);
       root.prepend(keyframeBefore);
     }
-  };
+  },
 
-  static removeDeclaration = (declaration: Declaration): void => {
+  removeDeclaration(declaration: Declaration): void {
     declaration.remove();
-  };
+  },
+};
 
-  static translate = (declaration: Declaration): void => {
-    Translator.positionRelative(declaration);
-    Translator.addPseudo(declaration);
-    Translator.addKeyframes(declaration);
-    Translator.removeDeclaration(declaration);
+export default function createTranslator(deps: TranslatorDeps = defaultTranslator): (declaration: Declaration) => void {
+  return (declaration: Declaration) => {
+    deps.positionRelative(declaration);
+    deps.addPseudo(declaration);
+    deps.addKeyframes(declaration);
+    deps.removeDeclaration(declaration);
   };
-}
+};

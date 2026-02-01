@@ -1,7 +1,7 @@
 import plugin, { DECLARATION_NAME, PLUGIN_NAME } from '../index';
 import { mock } from 'jest-mock-extended';
 import Root from 'postcss/lib/root';
-import mock_utils from '../translator';
+import mockCreateTranslator from '../translator';
 import type { Helpers, Plugin, Processor } from 'postcss';
 
 jest.mock('../translator');
@@ -27,6 +27,7 @@ describe('index', () => {
       const actualPlugin = plugin();
       // Assert
       expectPlugin(actualPlugin);
+      expect(mockCreateTranslator).toHaveBeenCalledWith();
       expect(actualPlugin.postcssPlugin).toEqual(PLUGIN_NAME);
     });
 
@@ -35,10 +36,13 @@ describe('index', () => {
         // Arrange
         const expected_root: Root = new Root();
         const expected_helpers: Helpers = mock<Helpers>();
-        const actualPlugin = plugin() as Plugin;
-        const mock_walkDecls = jest.fn();
+        const mockWalkDecls = jest.fn();
+        const mockTranslate = jest.fn();
+        (mockCreateTranslator as jest.Mock).mockReturnValue(mockTranslate);
 
-        expected_root.walkDecls = mock_walkDecls;
+        const actualPlugin = plugin() as Plugin;
+
+        expected_root.walkDecls = mockWalkDecls;
 
         // Act
         if (actualPlugin.Once) {
@@ -46,7 +50,7 @@ describe('index', () => {
         }
 
         // Assert
-        expect(mock_walkDecls).toHaveBeenCalledWith(DECLARATION_NAME, mock_utils.translate);
+        expect(mockWalkDecls).toHaveBeenCalledWith(DECLARATION_NAME, mockTranslate);
       });
     });
   });

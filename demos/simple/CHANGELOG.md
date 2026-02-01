@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.2](https://github.com/hex22a/postcss-glitch/compare/simple-v2.0.8...simple-v6.0.2) (2026-02-01)
+
+
+### Bug Fixes
+
+* **demos/simple:** confirm it supports EMs ([426da7b](https://github.com/hex22a/postcss-glitch/commit/426da7b24931af24dcefdc0b389c05a73a636896))
+
 ## [2.0.8](https://github.com/hex22a/postcss-glitch/compare/simple-v2.0.7...simple-v2.0.8) (2026-02-01)
 
 

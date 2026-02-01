@@ -4,7 +4,6 @@ Glitch effect implemented with PostCSS. With this plugin you can add a glitch ef
 
 [![NPM Version](https://img.shields.io/npm/v/postcss-glitch)](https://badge.fury.io/js/postcss-glitch)
 ![CI](https://github.com/hex22a/postcss-glitch/actions/workflows/test-plugin.yml/badge.svg)
-![CI](https://github.com/hex22a/postcss-glitch/actions/workflows/test-demo.yml/badge.svg)
 
 Check out [demo page](https://hex22a.github.io/postcss-glitch/) ([source](https://github.com/crftd/postcss-glitch-demos))
 

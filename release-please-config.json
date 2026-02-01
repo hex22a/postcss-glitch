@@ -7,12 +7,6 @@
       "package-name": "postcss-glitch",
       "changelog-path": "CHANGELOG.md",
       "tag-pattern": "v${version}"
-    },
-    "demos/simple": {
-      "path": "demos/simple",
-      "package-name": "simple",
-      "changelog-path": "CHANGELOG.md",
-      "tag-pattern": "demo-v${version}"
     }
   }
 }

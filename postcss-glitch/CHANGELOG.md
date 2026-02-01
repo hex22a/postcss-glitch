@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.8](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.1...postcss-glitch-v2.0.8) (2026-02-01)
+
+
+### Miscellaneous Chores
+
+* **demos/simple:** release demo 2.0.8 ([002e52d](https://github.com/hex22a/postcss-glitch/commit/002e52dff855cf020947d6ffb2e338302fbc5118))
+
 ## [6.0.1](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.0...postcss-glitch-v6.0.1) (2026-02-01)
 
 

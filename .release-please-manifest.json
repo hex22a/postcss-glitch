@@ -1,4 +1,6 @@
 {
   "plugin": "6.0.0",
-  "simple": "2.0.7"
+  "simple": "2.0.7",
+  "postcss-glitch": "6.0.1",
+  "demo-simple": "6.0.1"
 }

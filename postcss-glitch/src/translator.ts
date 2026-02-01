@@ -3,7 +3,7 @@ import { atRule, decl, list, rule } from 'postcss';
 import clipPath from './clip-path.builder';
 
 const CONTENT_DECLARATION = decl({ prop: 'content', value: 'attr(data-text)' });
-const POSITION_DECLARATION = decl({ prop: 'position', value: 'absolute' });
+const POSITION_ABSOLUTE_DECLARATION = decl({ prop: 'position', value: 'absolute' });
 const TOP_DECLARATION = decl({ prop: 'top', value: '0' });
 const LEFT_DECLARATION = decl({ prop: 'left', value: '0' });
 const OVERFLOW_DECLARATION = decl({ prop: 'overflow', value: 'hidden' });
@@ -36,7 +36,7 @@ export const defaultTranslator: TranslatorDeps = {
     const beforeAfterRule = rule({ selectors: [`${selector}::before`, `${selector}::after`] });
     beforeAfterRule
       .append(CONTENT_DECLARATION)
-      .append(POSITION_DECLARATION)
+      .append(POSITION_ABSOLUTE_DECLARATION)
       .append(TOP_DECLARATION)
       .append(LEFT_DECLARATION)
       .append(OVERFLOW_DECLARATION)

@@ -12,19 +12,17 @@ Check out our [demo page](https://hex22a.github.io/postcss-glitch/) ([source](ht
 npm install postcss-glitch
 ```
 
-You can use `.postcssrc.js` to add plugin to your project just like this:
+You can use `postcss.config.js` to add plugin to your project just like this:
 
 ```javascript
-// postcss.config.js.js
+// postcss.config.js
 
 module.exports = {
-	plugins: {
-		'postcss-import': {},
-		'postcss-glitch': {},
-		'postcss-url': {},
-		autoprefixer: {},
-	},
-};
+	plugins: [
+		require('postcss-glitch'),
+		require('autoprefixer'),
+	],
+}
 ```
 
 ### Usage

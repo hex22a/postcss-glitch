@@ -1,6 +1,4 @@
-### 5.0.0 (2026-01-27)
-
-- Update export to match PostCSS API v8
+# Changelog
 
 ## [6.0.3](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.2...postcss-glitch-v6.0.3) (2026-02-01)
 
@@ -15,6 +13,10 @@
 ### Miscellaneous Chores
 
 * **demos/simple:** release demo 2.0.8 ([002e52d](https://github.com/hex22a/postcss-glitch/commit/002e52dff855cf020947d6ffb2e338302fbc5118))
+
+### 5.0.0 (2026-01-27)
+
+- Update export to match PostCSS API v8
 
 ### 4.0.0 (2026-01-27)
 

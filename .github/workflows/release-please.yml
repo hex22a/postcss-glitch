@@ -12,15 +12,16 @@ jobs:
       contents: write
       pull-requests: write
 
+    outputs:
+      release_created: ${{ steps.rp.outputs.release_created }}
+      tag_name: ${{ steps.rp.outputs.tag_name }}
+
     steps:
       - uses: googleapis/release-please-action@v4
         id: rp
         with:
           config-file: release-please-config.json
           token: ${{ secrets.GITHUB_TOKEN }}
-    outputs:
-      release_created: ${{ steps.rp.outputs.release_created }}
-      tag_name: ${{ steps.rp.outputs.tag_name }}
 
   publish-npm:
     needs: release

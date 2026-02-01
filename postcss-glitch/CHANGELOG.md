@@ -3,11 +3,6 @@
 ## 6.0.1 (2026-02-01)
 
 
-### Bug Fixes
-
-* demos/simple/package.json to reduce vulnerabilities ([15d47fc](https://github.com/hex22a/postcss-glitch/commit/15d47fc80b5550c6d06ee0fa647b1495604f8140))
-
-
 ### Miscellaneous Chores
 
 * **postcss-glitch:** release 6.0.1 ([4d02c61](https://github.com/hex22a/postcss-glitch/commit/4d02c614fd1a3a9a712b2ebc0eb36e19a285004a))

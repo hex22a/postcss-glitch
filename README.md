@@ -2,8 +2,6 @@
 
 Glitch effect implemented with PostCSS. With this plugin you can add a glitch effect to any text!
 
-![animation](http://g.recordit.co/COmXbvzGfg.gif)
-
 Check out [demo page](https://hex22a.github.io/postcss-glitch/) ([source](https://github.com/crftd/postcss-glitch-demos))
 
 ---
@@ -60,4 +58,22 @@ You can learn more about managing monorepo with yarn workspaces in the [document
 
 If you want to start contributing to this project, please read the [CONTRIBUTING.md](CONTRIBUTING.md). 
 
+#### Commit messages
 
+This project uses the [release-please](https://github.com/googleapis/release-please-action) action.
+It is extremely sensitive to commit naming. Please follow
+[conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) naming convention and avoid any non-ascii
+characters like backticks (`), apostrophes ('), double quotes ("), etc.
+
+Always scope Your commits with corresponding `package-name` from [release-please-config.json](release-please-config.json)
+unless You're working on general repo documentation
+
+Examples:
+
+```shell
+git commit -m "chore(postcss-glitch): update documentation"
+```
+
+```shell
+git commit -m "chore(simple): update documentation"
+```

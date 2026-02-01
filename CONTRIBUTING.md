@@ -13,9 +13,8 @@ Please note we have a code of conduct, please follow it in all your interactions
 3. Make your changes in your fork;
 4. Update all documentation related to the change;
 5. Ensure you're not committing any secrets;
-6. Follow [SemVer](http://semver.org/) to update the version.
-If you're making changes to the plugin, `cd ./plugin` and then run `pnpm version <strategy>` (e.g. `pnpm version patch`).
-If you're making changes to one of the demo projects, `cd ./demos/simple` and then run `pnpm version <strategy>` (e.g. `pnpm version patch`);
+6. This project uses the [release-please](https://github.com/googleapis/release-please-action) action,
+so the version will be updated automatically once Your PR is merged.
 7. Create a [Pull Request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) ([Creating a pull request from a fork](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)) to the original repo on a master branch;
 8. Collaborate until the PR is satisfactory;
 9. Project leaders will merge your PR and deploy;

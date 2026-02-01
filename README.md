@@ -14,7 +14,7 @@ It contains both plugin source code and various demo projects that use the plugi
 ## Working with the repo
 
 > **NOTE:** The following documentation describes how to work with this repo.
-> You can find plugin documentation [here](plugin/README.md).
+> You can find plugin documentation [here](postcss-glitch/README.md).
 >
 > Also, take a look at the [demos](demos) directory if you are looking for working examples of how to use postcss-glitch plugin. 
 
@@ -43,11 +43,11 @@ pnpm install
 
 This project is a monorepo containing multiple projects a.k.a. workspaces.
 Workspaces are defined in [pnpm-workspace.yaml](pnpm-workspace.yaml).
-Here we have a workspace under [plugin](plugin) directory, additionally each directory under [demos](demos) is also considered a workspace.
+Here we have a workspace under [plugin](postcss-glitch) directory, additionally each directory under [demos](demos) is also considered a workspace.
 
 ```yaml
 packages:
-	- plugin
+	- postcss-glitch
 	- demos/*
 ```
 

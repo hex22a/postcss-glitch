@@ -3,7 +3,7 @@
   "release-type": "node",
   "packages": {
     "postcss-glitch": {
-      "path": "plugin",
+      "path": "postcss-glitch",
       "package-name": "postcss-glitch",
       "changelog-path": "CHANGELOG.md"
     }

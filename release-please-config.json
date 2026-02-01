@@ -6,6 +6,11 @@
       "path": "postcss-glitch",
       "package-name": "postcss-glitch",
       "changelog-path": "CHANGELOG.md"
+    },
+    "demos/simple": {
+      "path": "demos/simple",
+      "package-name": "simple",
+      "changelog-path": "CHANGELOG.md"
     }
   }
 }

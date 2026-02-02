@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`svg strategy adds 2 @keyframes animation with 21 steps at root and glitch height 5px 1`] = `
+"@keyframes glitch-svg-animation-before {
+    0% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    5% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    10% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    15% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    20% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    25% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    30% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    35% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    40% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    45% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    50% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    55% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    60% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    65% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    70% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    75% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    80% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    85% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    90% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    95% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    100% {
+        clip-path: inset(24px 0 19px 0)
+    }
+}
+@keyframes glitch-svg-animation-after {
+    0% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    5% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    10% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    15% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    20% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    25% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    30% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    35% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    40% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    45% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    50% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    55% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    60% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    65% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    70% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    75% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    80% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    85% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    90% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    95% {
+        clip-path: inset(24px 0 19px 0)
+    }
+    100% {
+        clip-path: inset(24px 0 19px 0)
+    }
+}
+.foo {
+    glitch: svg 48px #f00 #00f 1px
+}"
+`;

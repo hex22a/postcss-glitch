@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`translator adds 2 @keyframes animation with 21 steps at root and glitch height 5px 1`] = `
+exports[`text strategy adds 2 @keyframes animation with 21 steps at root and glitch height 5px 1`] = `
 "@keyframes glitch-animation-before {
     0% {
         clip-path: inset(24px 0 19px 0)
@@ -132,6 +132,6 @@ exports[`translator adds 2 @keyframes animation with 21 steps at root and glitch
     }
 }
 .foo {
-    glitch: 48px #f00 #00f 1px
+    glitch: text 48px #f00 #00f 1px
 }"
 `;

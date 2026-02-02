@@ -1,5 +1,22 @@
 # Changelog
 
+## [7.0.0](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.4...postcss-glitch-v7.0.0) (2026-02-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **postcss-glitch:** Introduce new glitch property value glitchMode
+
+### Features
+
+* **postcss-glitch:** Added SVG support ([ac68ee5](https://github.com/hex22a/postcss-glitch/commit/ac68ee5fdae2f00d36bc1a78e3231bd261707f66))
+* **postcss-glitch:** Introduce new glitch property value glitchMode ([fbef38d](https://github.com/hex22a/postcss-glitch/commit/fbef38d948a78d967b8740b08676d2b754190bf6))
+
+
+### Bug Fixes
+
+* **postcss-glitch:** Tweak SVG animation ([bf3e131](https://github.com/hex22a/postcss-glitch/commit/bf3e1318876dd3b7743e66a5a527d471d69ee547))
+
 ## [6.0.4](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.3...postcss-glitch-v6.0.4) (2026-02-01)
 
 

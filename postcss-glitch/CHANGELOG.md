@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.1](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v7.0.0...postcss-glitch-v7.0.1) (2026-02-02)
+
+
+### Bug Fixes
+
+* **postcss-glitch:** Add SVG usage documentation ([668ef4f](https://github.com/hex22a/postcss-glitch/commit/668ef4f8b7eb7d76c722687e5a966026fa29551b))
+
 ## [7.0.0](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v6.0.4...postcss-glitch-v7.0.0) (2026-02-02)
 
 

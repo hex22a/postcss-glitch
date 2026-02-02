@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/hex22a/postcss-glitch/compare/simple-v6.0.3...simple-v6.1.0) (2026-02-02)
+
+
+### Features
+
+* **simple:** Added SVG support demo ([561762c](https://github.com/hex22a/postcss-glitch/commit/561762c3c721e3a07212d0ad682ee2283dec2af9))
+
 ## [6.0.3](https://github.com/hex22a/postcss-glitch/compare/simple-v6.0.2...simple-v6.0.3) (2026-02-01)
 
 

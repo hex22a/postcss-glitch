@@ -2,16 +2,40 @@ body {
   font-family: 'Play', sans-serif;
 }
 
+.text {
+  font-weight: 500;
+  font-size: 23pt;
+}
+
 .glitch {
   font-weight: 700;
   font-size: 23pt;
-  glitch: 23pt #f00 #00f 2px;
+  glitch: text 23pt #f00 #00f 2px;
+}
+
+.glitch_colors {
+  font-weight: 700;
+  font-size: 23pt;
+  glitch: text 23pt #42ec00 #b600ff 3px;
 }
 
 .glitch_noise {
-  font-size: 2.7em;
+  font-size: 30pt;
+  glitch: text 40pt #f00 #00f 5px;
 }
 
 .glitch_em {
+  font-weight: 700;
   font-size: 2.7em;
+  glitch: text 2em #f00 #00f 2px;
+}
+
+.glitch_svg_bg {
+    background-image: url("email.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    glitch: svg 60% #f00 #00f 2px;
 }

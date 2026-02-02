@@ -43,12 +43,12 @@ export const defaultSvgStrategyDependencies: StrategyDependencies = {
     beforeRule
       .append(decl({ prop: 'transform', value: `translate(-${shadowOffset}, 0)` }))
       .append(decl({ prop: 'filter', value: `drop-shadow(-${shadowOffset} 0 ${firstColor})` }))
-      .append(decl({ prop: 'animation', value: 'glitch-svg-animation-before alternate-reverse 3s infinite linear' }));
+      .append(decl({ prop: 'animation', value: 'glitch-svg-animation-before 3s infinite steps(5, end)' }));
     const afterRule = rule({ selector: `${selector}::after` });
     afterRule
       .append(decl({ prop: 'transform', value: `translate(${shadowOffset}, 0)` }))
       .append(decl({ prop: 'filter', value: `drop-shadow(${shadowOffset} 0 ${secondColor})` }))
-      .append(decl({ prop: 'animation', value: 'glitch-svg-animation-after alternate-reverse 2s infinite linear' }));
+      .append(decl({ prop: 'animation', value: 'glitch-svg-animation-after 2s infinite steps(5, end)' }));
     const beforeAfterRule = rule({ selectors: [`${selector}::before`, `${selector}::after`] });
     beforeAfterRule
       .append(decl({ prop: 'content', value: '""' }))

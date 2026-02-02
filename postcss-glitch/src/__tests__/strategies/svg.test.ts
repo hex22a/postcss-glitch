@@ -124,12 +124,12 @@ ${expectedSelector}::before, ${expectedSelector}::after {
 ${expectedSelector}::before {
     transform: translate(-${expectedShadowOffset}, 0);
     filter: drop-shadow(-${expectedShadowOffset} 0 ${expectedFirstColor});
-    animation: glitch-svg-animation-before alternate-reverse 3s infinite linear
+    animation: glitch-svg-animation-before 3s infinite steps(5, end)
 }
 ${expectedSelector}::after {
     transform: translate(${expectedShadowOffset}, 0);
     filter: drop-shadow(${expectedShadowOffset} 0 ${expectedSecondColor});
-    animation: glitch-svg-animation-after alternate-reverse 2s infinite linear
+    animation: glitch-svg-animation-after 2s infinite steps(5, end)
 }`;
 
     // Act
@@ -141,8 +141,8 @@ ${expectedSelector}::after {
 
   it('adds 2 @keyframes animation with 21 steps at root and glitch height 5px', () => {
     // Arrange
-    const expectedOffsetTop = '24px';
-    const expectedOffsetBottom = '19px';
+    const expectedOffsetTop = '10%';
+    const expectedOffsetBottom = '22%';
     const expectedClipPath = decl({
       prop: 'clip-path',
       value: `inset(${expectedOffsetTop} 0 ${expectedOffsetBottom} 0)`,

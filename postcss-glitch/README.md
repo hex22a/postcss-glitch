@@ -2,8 +2,8 @@
 
 Glitch effect implemented with PostCSS. With this plugin you can add a glitch effect to any text!
 
-![CI](https://github.com/hex22a/postcss-glitch/actions/workflows/test-plugin.yml/badge.svg)
 [![NPM Version](https://img.shields.io/npm/v/postcss-glitch)](https://badge.fury.io/js/postcss-glitch)
+![CI](https://github.com/hex22a/postcss-glitch/actions/workflows/test-plugin.yml/badge.svg)
 
 Check out our [demo page](https://hex22a.github.io/postcss-glitch/) ([source](https://github.com/crftd/postcss-glitch-demos))
 
@@ -32,11 +32,46 @@ module.exports = {
 
 ```
 .foo {
-  glitch: <height in px | pt | % | em | rem > <first color> <second color> <shadow size>;
+  glitch: <glitch mode> <height in px | pt | % | em | rem > <first color> <second color> <shadow size>;
 }
 ```
 
 #### Guide
+
+##### SVG mode
+
+1. Create an element which you want to apply a glitch effect
+
+```html
+<div class="glitch_svg"></div>
+```
+
+```postcss
+.glitch_svg {
+    background-image: url("awesome.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+}
+```
+
+2. Add glitch property with mode `svg`
+
+```postcss
+.glitch_svg {
+    background-image: url("awesome.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    glitch: svg 60% #f00 #00f 2px;
+}
+```
+
+##### Text mode
 
 1. Create an element which you want to apply a glitch effect
 
@@ -44,17 +79,19 @@ module.exports = {
 <div class="glitch">PostCSS Glitch</div>
 ```
 
-1. Add a **data-text** attribute to the last created element
+2. Add a **data-text** attribute to the last created element
 
 ```html
 <div class="glitch" data-text="PostCSS Glitch">PostCSS Glitch</div>
 ```
 
-```css
+3. Add glitch property with mode `text`
+
+```postcss
 .glitch {
 	font-weight: 700;
 	font-size: 23pt;
-	glitch: 42px #f00 #00f 2px;
+	glitch: text 42px #f00 #00f 2px;
 }
 ```
 
@@ -66,7 +103,7 @@ module.exports = {
 .glitch {
 	font-weight: 700;
 	font-size: 23pt;
-	glitch: 42px #f00 #00f 2px;
+	glitch: text 42px #f00 #00f 2px;
 }
 ```
 

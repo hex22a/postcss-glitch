@@ -55,7 +55,6 @@
     "husky": "^9.1.7",
     "jest": "^30.3.0",
     "jest-mock-extended": "^4.0.1",
-    "jest-ts-auto-mock": "^2.1.0",
     "postcss": "^8.5.10",
     "prettier": "3.8.3",
     "pretty-quick": "^4.2.2",

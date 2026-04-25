@@ -59,9 +59,6 @@ importers:
       jest-mock-extended:
         specifier: ^4.0.1
         version: 4.0.1(@jest/globals@30.3.0)(jest@30.3.0(@types/node@25.6.0)(node-notifier@10.0.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3)))(typescript@6.0.3)
-      jest-ts-auto-mock:
-        specifier: ^2.1.0
-        version: 2.1.0(ts-auto-mock@3.7.4(typescript@6.0.3))
       postcss:
         specifier: ^8.5.10
         version: 8.5.10
@@ -1931,11 +1928,6 @@ packages:
     resolution: {integrity: sha512-f14c7atpb4O2DeNhwcvS810Y63wEn8O1HqK/luJ4F6M4NjvxmAKQwBUWjbExUtMxWJQ0wVgmCKymeJK6NZMnfQ==}
     engines: {node: ^18.14.0 || ^20.0.0 || ^22.0.0 || >=24.0.0}
 
-  jest-ts-auto-mock@2.1.0:
-    resolution: {integrity: sha512-ubL0pweKUHQNY2xCgwXjYllEQMgpKDojcEODpraQVevHqBFBsFDJZkpZp/2JsmujMu4TNJPzmSugXOLfKndmlQ==}
-    peerDependencies:
-      ts-auto-mock: ^3.5.0
-
   jest-util@30.3.0:
     resolution: {integrity: sha512-/jZDa00a3Sz7rdyu55NLrQCIrbyIkbBxareejQI315f/i8HjYN+ZWsDLLpoQSiUIEIyZF/R8fDg3BmB8AtHttg==}
     engines: {node: ^18.14.0 || ^20.0.0 || ^22.0.0 || >=24.0.0}
@@ -2101,9 +2093,6 @@ packages:
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
-
-  lodash-es@4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
 
   lodash.isequal@4.5.0:
     resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
@@ -2616,12 +2605,6 @@ packages:
     engines: {node: '>=18.12'}
     peerDependencies:
       typescript: '>=4.8.4'
-
-  ts-auto-mock@3.7.4:
-    resolution: {integrity: sha512-+/X+7yjpUBsIJBRxl/hs9aq3pA76w3Pcu70uHDxdr4C8TbXXwd/gq6t3b81xqU9N/KPFIFata1HcQZ2lwGKDRQ==}
-    engines: {node: '>=14.x.x', npm: '>=6.x.x'}
-    peerDependencies:
-      typescript: ^5.0.4
 
   ts-essentials@10.1.1:
     resolution: {integrity: sha512-4aTB7KLHKmUvkjNj8V+EdnmuVTiECzn3K+zIbRthumvHu+j44x3w63xpfs0JL3NGIzGXqoQ7AV591xHO+XrOTw==}
@@ -4991,10 +4974,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  jest-ts-auto-mock@2.1.0(ts-auto-mock@3.7.4(typescript@6.0.3)):
-    dependencies:
-      ts-auto-mock: 3.7.4(typescript@6.0.3)
-
   jest-util@30.3.0:
     dependencies:
       '@jest/types': 30.3.0
@@ -5149,8 +5128,6 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
-
-  lodash-es@4.17.21: {}
 
   lodash.isequal@4.5.0: {}
 
@@ -5669,12 +5646,6 @@ snapshots:
 
   ts-api-utils@2.5.0(typescript@6.0.3):
     dependencies:
-      typescript: 6.0.3
-
-  ts-auto-mock@3.7.4(typescript@6.0.3):
-    dependencies:
-      lodash-es: 4.17.21
-      micromatch: 4.0.8
       typescript: 6.0.3
 
   ts-essentials@10.1.1(typescript@6.0.3):

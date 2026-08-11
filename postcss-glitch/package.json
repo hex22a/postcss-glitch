@@ -55,7 +55,7 @@
     "husky": "^9.1.7",
     "jest": "^30.3.0",
     "jest-mock-extended": "^4.0.1",
-    "postcss": "^8.5.12",
+    "postcss": "^8.5.18",
     "prettier": "3.8.3",
     "pretty-quick": "^4.2.2",
     "size-limit": "^12.1.0",

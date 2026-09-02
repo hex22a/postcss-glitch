@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.1](https://github.com/hex22a/postcss-glitch/compare/simple-v6.1.0...simple-v6.1.1) (2026-09-02)
+
+
+### Bug Fixes
+
+* **postcss-glitch:** Updated dependencies ([592ee24](https://github.com/hex22a/postcss-glitch/commit/592ee24cb8a61ae11a32a993b207288a9594f1f5))
+
 ## [6.1.0](https://github.com/hex22a/postcss-glitch/compare/simple-v6.0.3...simple-v6.1.0) (2026-02-02)
 
 

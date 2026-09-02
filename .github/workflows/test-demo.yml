@@ -1,4 +1,6 @@
 name: Run linters and tests for Demo
+permissions:
+  contents: read
 on:
   push:
   pull_request:

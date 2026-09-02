@@ -51,6 +51,8 @@ jobs:
         run: pnpm --filter postcss-glitch publish --access public --no-git-checks
 
   build-demo:
+    permissions:
+      contents: read
     needs: release
     runs-on: ubuntu-latest
     if: ${{ needs.release.outputs.demos_simple_release_created == 'true' }}
@@ -68,6 +70,8 @@ jobs:
           path: demos/simple/dist
 
   deploy-demo:
+    permissions:
+      contents: read
     needs: build-demo
     runs-on: ubuntu-latest
 

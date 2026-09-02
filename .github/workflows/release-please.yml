@@ -70,8 +70,6 @@ jobs:
           path: demos/simple/dist
 
   deploy-demo:
-    permissions:
-      contents: read
     needs: build-demo
     runs-on: ubuntu-latest
 

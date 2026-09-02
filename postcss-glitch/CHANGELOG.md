@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.2](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v7.0.1...postcss-glitch-v7.0.2) (2026-09-02)
+
+
+### Bug Fixes
+
+* **postcss-glitch:** Updated dependencies ([592ee24](https://github.com/hex22a/postcss-glitch/commit/592ee24cb8a61ae11a32a993b207288a9594f1f5))
+
 ## [7.0.1](https://github.com/hex22a/postcss-glitch/compare/postcss-glitch-v7.0.0...postcss-glitch-v7.0.1) (2026-02-02)
 
 
